@@ -4,18 +4,19 @@ using UnityEngine;
 
 public class RotatorImg : MonoBehaviour
 {
-    
-    public float RotateX = 0; 
-    public float RotateY = 0; 
-    public float RotateZ = 0; 
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
+
+    public Vector3 rotateSpeed = new Vector3(0f,0f,0f);
+
 
     // Update is called once per frame
+    private void Start()
+    {
+        //
+    }
     void Update()
     {
-        transform.Rotate(RotateX,RotateY,RotateZ);
+        transform.Rotate(rotateSpeed.x, rotateSpeed.y, rotateSpeed.z);
+        // Quaternion rotation = Quaternion.Euler(rotateSpeed * Time.deltaTime);
+        // transform.rotation *= rotation;
     }
 }

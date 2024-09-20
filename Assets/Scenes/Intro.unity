@@ -210,9 +210,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e2f799fa724825479171bbd81d360eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RotateX: 0
-  RotateY: 0
-  RotateZ: 0
+  rotateSpeed: {x: 0, y: 0, z: 0}
 --- !u!1 &47687358
 GameObject:
   m_ObjectHideFlags: 0
@@ -274,8 +272,8 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_HighlightedColor: {r: 1, g: 1, b: 0, a: 1}
+    m_PressedColor: {r: 0.19223925, g: 0.19321865, b: 0.9056604, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -321,7 +319,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 0.13679248, b: 0.13679248, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -938,9 +936,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e2f799fa724825479171bbd81d360eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RotateX: 0
-  RotateY: 0
-  RotateZ: 0
+  rotateSpeed: {x: 0, y: 0, z: 0}
 --- !u!1 &696050114
 GameObject:
   m_ObjectHideFlags: 0
@@ -1002,8 +998,8 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_HighlightedColor: {r: 0.4652002, g: 1, b: 0, a: 1}
+    m_PressedColor: {r: 0.5566038, g: 0.5566038, b: 0.5566038, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -1498,9 +1494,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e2f799fa724825479171bbd81d360eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RotateX: 0
-  RotateY: 2
-  RotateZ: 0
+  rotateSpeed: {x: 0, y: 0, z: 1}
 --- !u!114 &932910819
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1589,9 +1583,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e2f799fa724825479171bbd81d360eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RotateX: 0
-  RotateY: 3
-  RotateZ: 0
+  rotateSpeed: {x: 0, y: 0, z: 1}
 --- !u!114 &1246317205
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1680,9 +1672,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e2f799fa724825479171bbd81d360eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RotateX: 0
-  RotateY: 4
-  RotateZ: 0
+  rotateSpeed: {x: 0, y: 0, z: 1}
 --- !u!114 &1471507883
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1968,9 +1958,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e2f799fa724825479171bbd81d360eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RotateX: 0
-  RotateY: 5
-  RotateZ: 0
+  rotateSpeed: {x: 0, y: 0, z: 1}
 --- !u!114 &1852550138
 MonoBehaviour:
   m_ObjectHideFlags: 0
