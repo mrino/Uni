@@ -23,9 +23,10 @@ public class IntroContoller : MonoBehaviour
     }
     // button
     public void OnClickStart(){
-        //씬전환
-        SceneManager.LoadScene("Main");
-        
+        // legacy씬전환
+        // SceneManager.LoadScene("Main");
+        // new 로딩씬 호출 및 어느 씬으로 이동할지
+        LoadingManager.LoadScene("Main");
     }
 
     public void OnclickQuit(){
