@@ -11,16 +11,6 @@ application 화면의 전환
 */
 public class IntroContoller : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-    }
     // button
     public void OnClickStart(){
         // legacy씬전환

@@ -15,7 +15,6 @@ public class LoadingManager : MonoBehaviour
     public static string targetScene;
     // 최소 로딩 시간
     public static float minLoadingTime = 3f;
-
     public CanvasGroup canvasGroup; 
 
     // 씬이 실행되는 순간 한번만 실행
