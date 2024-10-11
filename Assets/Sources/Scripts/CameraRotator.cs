@@ -1,16 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SocialPlatforms;
-using UnityEngine.UIElements;
 
 public class CameraRotator : MonoBehaviour
 {
     // 목적 마우스(터치)를 통해서 camera(user)를 회전
     // - 마우스(터치) 입력 event
-    public float mouseX, mouseY;
+    protected float mouseX, mouseY;
     // - 민감도(회전 속도)
-    public float speed = 10f;
+    public float speed = 100f;
 
     // Start is called before the first frame update
     void Start()

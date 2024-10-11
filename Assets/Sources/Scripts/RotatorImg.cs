@@ -19,4 +19,5 @@ public class RotatorImg : MonoBehaviour
         // Quaternion rotation = Quaternion.Euler(rotateSpeed * Time.deltaTime);
         // transform.rotation *= rotation;
     }
+    
 }
