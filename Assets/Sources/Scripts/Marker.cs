@@ -5,7 +5,7 @@ using UnityEngine.UIElements;
 public class Marker : MonoBehaviour {
     // 목표 : 선택하면 특정장소로 이동
     // - 이동할 장소(street)
-    // s역할
+    // 역할
     // A. 자기 자신을 기준으로 4방향 (앞, 뒤, 좌, 우)에 이동 가능한 장소가 있는지 확인
     //      - Ray 활용
     //      - 시각적으로 볼 수 있게 수정     
