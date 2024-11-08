@@ -5,9 +5,6 @@ using UnityEngine;
 
 public class Street : MonoBehaviour
 {
-    enum Direction{
-        forward, back, right, left
-    }
     //탐색범위
     private float detectRange = 0f; 
     public float adjustRange = 1.0f; // 배율 조절
@@ -116,6 +113,58 @@ public class Street : MonoBehaviour
     //     return Vector3.zero; 
     // }
 
+    //화살표를 눌러 장소를 이동시키는 버튼에 연결할 함수
+    //특정방향 장소
+    public void OnClickNavigatorBtn(Direction dir){
+        print($"{dir} 버튼 클릭");
+        //1. 현재 장소 갱신
+        // - 다음 장소 street 정보
+        // - gameManger을 찾고, 
+        // - gameManger가 가지고있는 gameManger을 찾고 
+        // - gameManger 컴포넌트가 가지고 있는 currentSstreet을 가져온다
+        Street nextStreet = GetNextStreet(dir);
+
+        GameManger gm = FindObjectOfType<GameManger>();
+        gm.SetCurrentStreet(nextStreet);
+        //2. 다음 장소 위치로 이동 (player)
+        // - 다음 장소 위치정보
+        Vector3 nextPos = nextStreet.gameObject.transform.position;
+        // - player 정보 필요
+        gm.MovePlayer(nextPos);
+        // - 현재 장소 street에 대한 정보도 필요
+    }
+
+    void SetCurrentStreet(Street street){
+        #region ver.2
+        // GameObject gameManger = GameObject.Find("GameManger");
+        // GameManger gm = gameManger.GetComponent<GameManger>();
+        // gm.currentStreet = street; 
+        #endregion
+
+        #region ver.2
+        GameManger gm = FindObjectOfType<GameManger>();     
+        gm.currentStreet = street;
+        Debug.Log("currentStreet가 설정되었습니다.");     
+        
+        #endregion
+    }
+
+    //방향에 따른 다음 장소의 street정보 가져오기
+    private Street GetNextStreet(Direction dir){
+        switch (dir)
+        {
+            case Direction.forward: 
+                return forwardStreet;
+            case Direction.back: 
+                return backStreet;
+            case Direction.right: 
+                return rightStreet;
+            case Direction.left: 
+                return leftStreet;
+        }
+        
+    }
+
     
 
 
@@ -147,4 +196,5 @@ public class Street : MonoBehaviour
         Gizmos.DrawLine(position, position + Vector3.right * testRange);
         // Gizmos.DrawLine(position, position + transform.right * testRange);
     }
+
 }

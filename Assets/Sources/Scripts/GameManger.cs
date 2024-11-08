@@ -1,6 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.TextCore.Text;
+using UnityEngine.UI;
 
 // 역할 : player를 선택한 street로 이동
 // -player 
@@ -9,12 +13,17 @@ using UnityEngine;
 // 역할: canvas를 통해 이동할수있는 street 표시
 // ㄴ forward, back, left, right 
 // 이동할수있는 여부를 알 수 있는 street 
+//street의 방향을 나타내는 enum 방향집합
+public enum Direction{
+    forward, back, right, left
+}
+
+
 public class GameManger : MonoBehaviour
 {
     public GameObject player;
-    public Street slectedStreet;
     public Street currentStreet;
-    public GameObject arrowForward, arrowBack ,arrowLeft,arrowRight;
+    public Button[] navigatorBtns = new Button[4];
     // Start is called before the first frame update
     void Start()
     {
@@ -33,33 +42,71 @@ public class GameManger : MonoBehaviour
         // 현재 street를 기준으로 
         // left street으로 이동할수있다면 arrow 활성화
         if(currentStreet.leftStreet != null){
-            arrowLeft.SetActive(true);
+            ActiveArrow(Direction.left);
         }else{
-            arrowLeft.SetActive(false);
+            Debug.Log("실행됨");
+            DectiveArrow(Direction.left);
         }
         // right street으로 이동할수있다면 arrow 활성화
         if(currentStreet.rightStreet != null){
-            arrowRight.SetActive(true);
+            ActiveArrow(Direction.right);
         }else{
-            arrowRight.SetActive(false);
+            DectiveArrow(Direction.right);
         }
         // forward street으로 이동할수있다면 arrow 활성화
         if(currentStreet.forwardStreet != null){
-            arrowForward.SetActive(true);
+            ActiveArrow(Direction.forward);
         }else{
-            arrowForward.SetActive(false);
+            DectiveArrow(Direction.forward);
+
         }
         // back street으로 이동할수있다면 arrow 활성화
         if(currentStreet.backStreet != null){
-            arrowBack.SetActive(true);
+            ActiveArrow(Direction.back);
         }else{
-            arrowBack.SetActive(false);
+            DectiveArrow(Direction.back);
         }
     }
+
 
     void SetArrowActive(GameObject arrow, Street streetDirection)
     {
         arrow.SetActive(streetDirection != null);
+    }
+
+    public void ActiveArrow(Direction dir){
+        //0. 방향 direction 
+        int index = (int)dir;
+        Debug.Log($"Active {index}");
+        //방향에 맞는 화살표를 활성화
+        Button btn = navigatorBtns[index];
+        btn.gameObject.SetActive(true);
+        btn.onClick.AddListener(() => currentStreet.OnClickNavigatorBtn(dir));
+
+    }
+
+    public void DectiveArrow(Direction dir){
+        //방향에 맞는 화살표를 바활성화
+        int index = (int)dir;
+        Debug.Log($"DectiveArrow {index}");
+        //방향에 맞는 화살표를 활성화
+        Button btn = navigatorBtns[index];
+        btn.gameObject.SetActive(false);
+        
+
+    }
+    public void MovePlayer(Vector3 nextPos){
+        //이동할 다음 장소 위치
+        //plyer를 다음 장소로이동
+        player.transform.position = nextPos;
+        
+    }
+
+    public void SetCurrentStreet(Street street){
+        #region ver.2   
+        currentStreet = street;
+        Debug.Log("currentStreet가 설정되었습니다.");     
+        #endregion
     }
 
     
