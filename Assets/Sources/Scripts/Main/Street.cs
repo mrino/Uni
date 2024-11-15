@@ -1,14 +1,14 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
 public class Street : MonoBehaviour
-{
+{   
     //탐색범위
     private float detectRange = 0f; 
-    public float adjustRange = 1.0f; // 배율 조절
-    
+
     
     public GameObject marker;
 
@@ -26,7 +26,7 @@ public class Street : MonoBehaviour
         float radius = gameObject.transform.localScale.z * 0.5f;
         //반지름의 일정 배수만큼 조절하여 범위를 설정
         //조절된 범위를 탐색범위로 설정
-        detectRange = adjustRange * radius;
+        detectRange = GameManger.Instance.adjustRange * radius;
 
     }
 
@@ -103,16 +103,6 @@ public class Street : MonoBehaviour
         return rayDir;
     }
 
-    // Vector3 GetRayDirection(Direction dir){
-    //     switch(dir){
-    //         case Direction.forward: return Vector3.forward; 
-    //         case Direction.back: return Vector3.back; 
-    //         case Direction.left: return Vector3.left; 
-    //         case Direction.right: return Vector3.right; 
-    //     }
-    //     return Vector3.zero; 
-    // }
-
     //화살표를 눌러 장소를 이동시키는 버튼에 연결할 함수
     //특정방향 장소
     public void OnClickNavigatorBtn(Direction dir){
@@ -124,28 +114,32 @@ public class Street : MonoBehaviour
         // - gameManger 컴포넌트가 가지고 있는 currentSstreet을 가져온다
         Street nextStreet = GetNextStreet(dir);
 
-        GameManger gm = FindObjectOfType<GameManger>();
-        gm.SetCurrentStreet(nextStreet);
-        //2. 다음 장소 위치로 이동 (player)
-        // - 다음 장소 위치정보
-        Vector3 nextPos = nextStreet.gameObject.transform.position;
         // - player 정보 필요
-        gm.MovePlayer(nextPos);
         // - 현재 장소 street에 대한 정보도 필요
+        Debug.Log(nextStreet);
+        SetCurrentStreet(nextStreet);
+        // - 다음 장소 위치정보
+        //2. 다음 장소 위치로 이동 (player)
+        Vector3 nextPos = nextStreet.gameObject.transform.position;
+        GameManger.Instance.MovePlayer(nextPos);
+        // 4 이동한 장소에서 새롭게 매핑
+        GameManger.Instance.MappingStreet();
     }
 
+
     void SetCurrentStreet(Street street){
-        #region ver.2
+        #region ver.1
         // GameObject gameManger = GameObject.Find("GameManger");
         // GameManger gm = gameManger.GetComponent<GameManger>();
         // gm.currentStreet = street; 
         #endregion
-
         #region ver.2
-        GameManger gm = FindObjectOfType<GameManger>();     
-        gm.currentStreet = street;
-        Debug.Log("currentStreet가 설정되었습니다.");     
-        
+        // GameManger gm = FindObjectOfType<GameManger>();     
+        // gm.currentStreet = street;
+        // Debug.Log("currentStreet가 설정되었습니다.");     
+        #endregion
+        #region var.3
+        GameManger.Instance.currentStreet = street;
         #endregion
     }
 
@@ -161,8 +155,8 @@ public class Street : MonoBehaviour
                 return rightStreet;
             case Direction.left: 
                 return leftStreet;
+            default: return null;
         }
-        
     }
 
     
@@ -177,7 +171,8 @@ public class Street : MonoBehaviour
         
         //내 반지름 크기
         float radius = gameObject.transform.localScale.z * 0.5f;
-        float testRange = adjustRange * radius;
+        float testadjustRange = GameManger.Instance != null ? GameManger.Instance.adjustRange : 1.5f;
+        float testRange = radius * testadjustRange;
         
         //-앞 Forward
         Gizmos.color = Color.cyan;
@@ -196,5 +191,4 @@ public class Street : MonoBehaviour
         Gizmos.DrawLine(position, position + Vector3.right * testRange);
         // Gizmos.DrawLine(position, position + transform.right * testRange);
     }
-
 }
