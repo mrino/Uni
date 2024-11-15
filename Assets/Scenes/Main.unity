@@ -1491,6 +1491,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 961739753}
+  - {fileID: 1482189009}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &961739749
@@ -2077,7 +2078,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 898648362}
   currentStreet: {fileID: 386070028}
-  adjustRange: 1.5
+  adjustRange: 2
   navigatorBtns:
   - {fileID: 855536346}
   - {fileID: 823201282}
@@ -2253,7 +2254,7 @@ RectTransform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1549526781}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 898648364}
   m_LocalEulerAnglesHint: {x: 38.423, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2576,7 +2577,6 @@ SceneRoots:
   - {fileID: 1006873655}
   - {fileID: 1423106608}
   - {fileID: 1409931557}
-  - {fileID: 1482189009}
   - {fileID: 575095849}
   - {fileID: 323084220}
   - {fileID: 1593940963}
