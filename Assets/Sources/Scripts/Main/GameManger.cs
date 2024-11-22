@@ -26,7 +26,6 @@ public class GameManger : MonoBehaviour
 {
     //싱글톤 디자인 패턴
     public static GameManger Instance = null;
-    
     public GameObject player;
     public Street currentStreet;
     public float adjustRange = 1.5f; // 배율 조절 (1.0f 1배)
@@ -38,7 +37,9 @@ public class GameManger : MonoBehaviour
         //값을 할당한다.
         if(Instance == null){
             Instance = this;   
-        } 
+        } else{
+            gameObject.SetActive(false);
+        }
     }
     void Start()
     {
