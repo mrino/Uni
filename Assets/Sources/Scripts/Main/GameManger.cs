@@ -113,9 +113,13 @@ public class GameManger : MonoBehaviour
         btn.gameObject.SetActive(false);
     }
 
-    public void MovePlayer(Vector3 nextPos){
+    public void MovePlayer(){
         //이동할 다음 장소 위치
         //plyer를 다음 장소로이동
+        player.transform.position = currentStreet.transform.position;
+       
+    }  
+    public void MovePlayer(Vector3 nextPos){
         player.transform.position = nextPos;
-    }    
+    }  
 }

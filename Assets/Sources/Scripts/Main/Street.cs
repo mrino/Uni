@@ -113,17 +113,13 @@ public class Street : MonoBehaviour
         // - gameManger가 가지고있는 gameManger을 찾고 
         // - gameManger 컴포넌트가 가지고 있는 currentSstreet을 가져온다
         Street nextStreet = GetNextStreet(dir);
-
         // - player 정보 필요
         // - 현재 장소 street에 대한 정보도 필요
         Debug.Log(nextStreet);
         SetCurrentStreet(nextStreet);
-        // - 다음 장소 위치정보
-        //2. 다음 장소 위치로 이동 (player)
-        Vector3 nextPos = nextStreet.gameObject.transform.position;
-        GameManger.Instance.MovePlayer(nextPos);
-        // 4 이동한 장소에서 새롭게 매핑
-        GameManger.Instance.MappingStreet();
+
+        //다음 화면으로 전송
+        TranstionManger.Instance.MakeTrasition();
     }
 
 
